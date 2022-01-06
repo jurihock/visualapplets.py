@@ -4,8 +4,8 @@ The [Basler AG](https://www.baslerweb.com) company provides a [TCL](https://wiki
 to automatize the creation of VisualApplets designs (a former Silicon Software GmbH technology),
 which is a nice and useful feature but not nice enough, in my opinion.
 
-The main idea of `visualapplets.py` is to introduce an additional scripting abstraction and
-to script the creation of the TCL scripts via Python.
+The main idea of the `visualapplets.py` project is to introduce an additional scripting abstraction
+and to script the creation of TCL scripts via Python.
 
 Huh, to script the script? Too much meta? Let us study an example...
 
