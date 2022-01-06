@@ -41,4 +41,4 @@ if __name__ == '__main__':
 
     # create a design with an instance of the example module
     design = VA.Design('mE5-MA-VCLx', 'Example')
-    example = Example(design, 'Example', 1, 2)
+    example = Example(design, 'Example', x=1, y=2)

@@ -65,7 +65,7 @@ VA.printer = VA.FilePrinter('example.tcl')
 
 # create a design with an instance of the example module
 design = VA.Design('mE5-MA-VCLx', 'Example')
-example = Example(design, 'Example', 1, 2)
+example = Example(design, 'Example', x=1, y=2)
 ```
 
 Finally import the generated `example.tcl` file in the VisualApplets IDE or execute something like this in the TCL console:
