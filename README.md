@@ -40,10 +40,8 @@ class Example(VA.Module):
         # link created modules together, from left to right
         self('INBOUND') - branch
         branch(0) - decision
-        branch(1) - condition
-        branch(2) - value
-        condition - decision('C')
-        value - decision('E')
+        branch(1) - condition - decision('C')
+        branch(2) - value - decision('E')
         decision - self('OUTBOUND')
 
         # for instance, set desired link properties
@@ -53,8 +51,8 @@ class Example(VA.Module):
         value('O')['Arithmetic'] = 'signed'  # (needs to match the input link)
 
         # for instance, set desired module properties
-        condition['Number'] = 0
-        value['Value'] = 0
+        condition['Number'] = 0  # input value threshold
+        value['Value'] = 0       # output value below threshold
 ```
 
 Now the second part of our Python script:

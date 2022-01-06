@@ -136,6 +136,8 @@ class Module:
 
     def __sub__(self, other):
 
+        assert isinstance(other, (Module, Port))
+
         src = self()
         dst = other() if isinstance(other, Module) else other
 
@@ -180,6 +182,8 @@ class Port:
 
     def __sub__(self, other):
 
+        assert isinstance(other, (Module, Port))
+
         src = self
         dst = other() if isinstance(other, Module) else other
 
@@ -220,6 +224,15 @@ class Link:
     def __setitem__(self, param_name, param_value):
 
         return Param(self, param_name, param_value)
+
+    def __sub__(self, other):
+
+        assert isinstance(other, (Module, Port))
+
+        src = self.dst.module()
+        dst = other() if isinstance(other, Module) else other
+
+        return src - dst
 
 
 class Param:
