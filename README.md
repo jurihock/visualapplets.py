@@ -39,7 +39,7 @@ class Example(VA.Module):
 
         # link created modules together, from left to right
         self('INBOUND') - branch
-        branch(0) - decision
+        branch(0) - decision('I')
         branch(1) - condition - decision('C')
         branch(2) - value - decision('E')
         decision - self('OUTBOUND')
