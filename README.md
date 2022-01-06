@@ -74,3 +74,7 @@ Finally import the generated `example.tcl` file in the VisualApplets IDE or exec
 CloseDesign Discard
 source "C:/foo/bar/example.tcl"
 ```
+
+The resulting design should look similar to this one:
+
+![](example.png)
