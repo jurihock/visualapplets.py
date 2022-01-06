@@ -78,3 +78,25 @@ source "C:/foo/bar/example.tcl"
 The resulting design should look similar to this one:
 
 ![](example.png)
+
+# Basics
+
+With the help of the previous example imagine now, how straightforward repetitive routines like vector/matrix calculus could be designed, but without the syntactical knowledge of the TCL itself (of course not without a certain amount of Python experience).
+
+There are a few basic concepts to understand how the `visualapplets.py` works:
+
+## Module
+
+...
+
+## Port
+
+...
+
+## Link
+
+...
+
+## Param
+
+...
