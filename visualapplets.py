@@ -1,4 +1,12 @@
-# TODO: add file header
+# ~~~
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+#
+# Copyright (c) 2022, Juergen Hock juergen.hock@jurihock.de
+#
+# See also https://github.com/jurihock/visualapplets.py
+# ~~~
 
 
 operators = {
