@@ -105,7 +105,7 @@ class Module:
         i, o = (self.i or 0), (self.o or 0)
         x, y = grid.x(self.x or 1), grid.y(self.y or 1)
 
-        return f'CreateModule "{self.operator}" "{self}" {i} {o} {x} {y}'
+        return f'CreateModule "{self.operator}" "{self}" "{i}" "{o}" "{x}" "{y}"'
 
     def __setitem__(self, param_name, param_value):
 
