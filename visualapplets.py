@@ -252,34 +252,6 @@ class Param:
         assert False
 
 
-class Example(Module):
-
-    def __init__(self, parent, name, x, y):
-
-        super().__init__('HierarchicalBox', parent, name, i=1, o=1, x=x, y=y)
-
-        branch = Module('BRANCH', self, 'Branch', o=3, x=1, y=1)
-        condition = Module('IS_GreaterThan', self, 'Condition', x=2, y=2)
-        value = Module('CONST', self, 'Value', x=2, y=3)
-        decision = Module('IF', self, 'Decision', x=3, y=1)
-
-        self('INBOUND') - branch
-        branch(0) - decision
-        branch(1) - condition
-        branch(2) - value
-        condition - decision('C')
-        value - decision('E')
-        decision - self('OUTBOUND')
-
-        branch('I')['Bit Width'] = 16
-        branch('I')['Arithmetic'] = 'signed'
-
-        value('O')['Bit Width'] = 16
-        value('O')['Arithmetic'] = 'signed'
-
-
 if __name__ == '__main__':
 
-    printer = FilePrinter('example.tcl')
-    design = Design('mE5-MA-VCLx', 'Example')
-    example = Example(design, 'Example', 1, 2)
+    pass
