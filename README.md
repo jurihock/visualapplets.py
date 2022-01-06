@@ -19,7 +19,7 @@ So it can be reused many times in a VisualApplets design.
 Consequently we also create a class in our Python script,
 for the same purpose of course.
 
-We begin with the first part of the Python script:
+We begin with the first part of the Python script [example.py](example.py):
 
 ```python
 import visualapplets as VA
@@ -57,7 +57,7 @@ class Example(VA.Module):
         value['Value'] = 0
 ```
 
-Now the second part of the Python script:
+Now the second part of our Python script:
 
 ```python
 # dump generated TCL script to a file instead of stdout
@@ -68,7 +68,7 @@ design = VA.Design('mE5-MA-VCLx', 'Example')
 example = Example(design, 'Example', x=1, y=2)
 ```
 
-Finally import the generated `example.tcl` file in the VisualApplets IDE or execute something like this in the TCL console:
+Finally import the generated [example.tcl](example.tcl) file in the VisualApplets IDE or execute something like this in the TCL console:
 
 ```
 CloseDesign Discard
