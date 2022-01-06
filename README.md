@@ -7,7 +7,7 @@ which is a nice and useful feature but not nice enough, in my opinion.
 The main idea of the `visualapplets.py` project is to introduce an additional scripting abstraction
 and to script the creation of TCL scripts via Python.
 
-Huh, to script the script? Too much meta? Let us study an example...
+Huh, to script a script? Too much meta? Let us study an example...
 
 ## Example
 
@@ -37,7 +37,7 @@ class Example(VA.Module):
         value = VA.Module('CONST', self, 'Value', x=2, y=3)
         decision = VA.Module('IF', self, 'Decision', x=3, y=1)
 
-        # link created modules together
+        # link created modules together, from left to right
         self('INBOUND') - branch
         branch(0) - decision
         branch(1) - condition
