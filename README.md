@@ -53,6 +53,7 @@ class Example(VA.Module):
         value('O')['Arithmetic'] = 'signed'  # (needs to match the input link)
 
         # for instance, set desired module properties
+        condition['Number'] = 0
         value['Value'] = 0
 ```
 
