@@ -232,7 +232,7 @@ class Param:
         def stringify(value):
             if isinstance(value, (list, tuple)):
                 return ' '.join([stringify(item) for item in value])
-            return f'"{value or ""}"'
+            return '""' if value is None else f'"{value}"'
 
         name = stringify(self.name)
         value = stringify(self.value)
