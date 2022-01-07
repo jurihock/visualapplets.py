@@ -86,10 +86,10 @@ grid = Grid()
 
 class Design:
 
-    def __init__(self, platform, name, version=None, description=None):
+    def __init__(self, platform, name=None, version=None, description=None):
 
         self.platform = platform
-        self.name = name
+        self.name = name or platform
         self.version = version
         self.description = description
 
