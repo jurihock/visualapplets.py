@@ -16,6 +16,10 @@ operators = {
     'BRANCH': {
         'O': lambda n: f'O{n:03d}',
     },
+    'CASE': {
+        'I': lambda n: f'I{n:03d}',
+        'Switch': lambda n: f'Switch',
+    },
     'CMP_*': {
         'A': lambda n: f'A',
         'B': lambda n: f'B',
