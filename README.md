@@ -90,8 +90,8 @@ Only `x` and `y` arguments will be converted from the grid cell index to the abs
 
 Furthermore each module instance provides an access to
 
-* module port descriptor via `__call__` method and
-* module parameter descriptor via `__setitem__` method.
+* module port descriptor via `()` accessor and
+* module parameter descriptor via `[]` accessor.
 
 Modules with unambiguous assignable output-input port combination can be directly connected without specifying the source and destination port, like `CONST - BRANCH`. Reciprocal connection `BRANCH - CONST` is not necessarily unambiguous, since the branch can have multiple outputs, so you have to specify which one.
 
@@ -119,7 +119,7 @@ There are particular operator specific variations like in case of `DIV`, `MULT` 
 
 ## Link
 
-Creation of a link by "subtracting" modules or ports actually triggers the `ConnectModules` TCL command:
+Creation of a link by "subtracting" modules or ports triggers the `ConnectModules` TCL command:
 
 ```
 foo = Module('CONST', ...)
@@ -133,10 +133,30 @@ link = bar - foo # connect bar to foo
 link = bar('O', 0) - foo # same
 link = bar(0) - foo('I') # same
 link = bar(1) - foo # another branch port
+
+foo - bar # just do link and forget the link descriptor
 ```
 
 It is not required to "park" the created link in a variable, only if a link parameter needs to be modified. Another possibility to set a link parameter is to set the parameter of the corresponding port descriptor, which is the same thing.
 
 ## Param
 
-...
+Depending on the context, a parameter descriptor triggers either `SetModuleParam` or `SetLinkParam` TCL command:
+
+```
+foo = Module(...)
+
+foo['asdf'] = 42 # assign a int
+foo['asdf'] = 'hello' # assign a string
+
+foo['asdf'] = [1, 2, 3] # assign a list of ints
+foo['asdf'] = ('a', 'b', 'c') # assign a string tuple
+```
+
+```
+bar = Module(...)
+link = foo - bar
+
+link['Bit Width'] = 24 # modify link parameter
+bar('I')['Bit Width'] = 24 # same
+```
