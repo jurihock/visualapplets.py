@@ -134,7 +134,7 @@ link = bar('O', 0) - foo # same
 link = bar(0) - foo('I') # same
 link = bar(1) - foo # another branch port
 
-foo - bar # just do link and forget the link descriptor
+foo - bar # just connect and forget the link descriptor
 ```
 
 It is not required to "park" the created link in a variable, only if a link parameter needs to be modified. Another possibility to set a link parameter is to set the parameter of the corresponding port descriptor, which is the same thing.
