@@ -80,7 +80,20 @@ There are a few basic concepts to understand how the `visualapplets.py` works.
 
 ## Module
 
-...
+An instance of the Python module actually triggers the `CreateModule` TCL command as well forwards the specified parameters as is:
+
+```python
+Module(operator, parent, name, i, o, x, y)
+```
+
+Only `x` and `y` arguments will be converted from the grid cell index to the absolute coordinates via `visualapplets.grid` instance. So you don't have to mess up with pixels, just place modules discretely in grid cells.
+
+Furthermore each module instance provides an access to
+
+* module ports via `__call__` method and
+* module parameters via `__setitem__` method.
+
+Modules with unambiguous assignable input and output ports can be directly connected without specifying the source and destination port, like `CONST - BRANCH`. Reciprocal connection `BRANCH - CONST` is not necessarily unambiguous, since the branch can have multiple outputs, so you have to specify which one.
 
 ## Port
 
