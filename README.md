@@ -4,7 +4,7 @@ The [Basler AG](https://www.baslerweb.com) company provides a [TCL](https://docs
 
 The main idea of the `visualapplets.py` project is to introduce an additional scripting abstraction and to script the creation of TCL scripts via Python.
 
-Huh, to script a script? Too much meta? Let us study an example...
+Huh, to script a script? Too much meta? Let's study an example...
 
 ## Example
 
