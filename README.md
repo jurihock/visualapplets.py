@@ -70,6 +70,8 @@ The resulting design should look similar to this one:
 
 ![](example.png)
 
+Obviously there are multiple possibilities to implement the ReLU function, e.g. you can replace the fallback value by a XOR result or also only check the sign bit of the input value. But the best way is probably to utilize the built-in ClipLow module instead... ;-)
+
 # Basics
 
 With the help of the previous example imagine now, how custom algorithms could be implemented without a deep [TCL](https://en.wikipedia.org/wiki/Tcl) knowledge, but of course not without a certain amount of [Python](https://www.python.org/doc/essays/comparisons) experience.
