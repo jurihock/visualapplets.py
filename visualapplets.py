@@ -16,6 +16,11 @@ operators = {
     'BRANCH': {
         'O': lambda n: f'O{n:03d}',
     },
+    'CMP_Equal': {
+        'A': lambda n: f'A',
+        'B': lambda n: f'B',
+        'I': lambda n: f'{["A", "B"][n]}',
+    },
     'DIV': {
         'I': lambda n: f'I{(n + 1)}',
         'R': lambda n: f'R',
@@ -34,11 +39,26 @@ operators = {
     'MergeKernel': {
         'I': lambda n: f'I{n:03d}',
     },
+    'MergeComponents': {
+        'R': lambda n: f'R',
+        'G': lambda n: f'G',
+        'B': lambda n: f'B',
+        'I': lambda n: f'{["R", "G", "B"][n]}',
+    },
+    'MergePixel': {
+        'I': lambda n: f'I{n:03d}',
+    },
     'MULT': {
         'I': lambda n: f'I{(n + 1)}',
     },
     'SplitKernel': {
         'O': lambda n: f'O{n:03d}',
+    },
+    'SplitComponents': {
+        'R': lambda n: f'R',
+        'G': lambda n: f'G',
+        'B': lambda n: f'B',
+        'O': lambda n: f'{["R", "G", "B"][n]}',
     },
     'SUB': {
         'I': lambda n: f'I{(n + 1)}',
