@@ -13,6 +13,9 @@ operators = {
     'ADD': {
         'I': lambda n: f'I{n:03d}',
     },
+    'AND': {
+        'I': lambda n: f'I{n:03d}',
+    },
     'BRANCH': {
         'O': lambda n: f'O{n:03d}',
     },
@@ -58,6 +61,9 @@ operators = {
     'MULT': {
         'I': lambda n: f'I{(n + 1)}',
     },
+    'OR': {
+        'I': lambda n: f'I{n:03d}',
+    },
     'SplitComponents': {
         'R': lambda n: f'R',
         'G': lambda n: f'G',
@@ -72,6 +78,12 @@ operators = {
     },
     'SUB': {
         'I': lambda n: f'I{(n + 1)}',
+    },
+    'XNOR': {
+        'I': lambda n: f'I{n:03d}',
+    },
+    'XOR': {
+        'I': lambda n: f'I{n:03d}',
     },
 }
 
