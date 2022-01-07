@@ -119,7 +119,23 @@ There are particular operator specific variations like in case of `DIV`, `MULT` 
 
 ## Link
 
-...
+Creation of a link by "subtracting" modules or ports actually triggers the `ConnectModules` TCL command:
+
+```
+foo = Module('CONST', ...)
+bar = Module('BRANCH', ...)
+
+link = foo - bar # connect foo to bar
+link = foo - bar('I') # same
+link = foo('O') - bar(0) # same
+
+link = bar - foo # connect bar to foo
+link = bar('O', 0) - foo # same
+link = bar(0) - foo('I') # same
+link = bar(1) - foo # another branch port
+```
+
+It is not required to "park" the created link in a variable, only if a link parameter needs to be modified. Another possibility to set a link parameter is to set the parameter of the corresponding port descriptor, which is the same thing.
 
 ## Param
 
