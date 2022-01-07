@@ -105,8 +105,8 @@ module('I', 0) # same
 module(0, 'I') # same
 
 module('O') # default output port
-module('o', 0) # same (since case invariant)
-module(0, 'o') # same
+module('O', 0) # same
+module(0, 'O') # same
 
 module('O', 1) # second output port of branch
 module('A') # first input of comparator
