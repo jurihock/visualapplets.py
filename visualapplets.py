@@ -1,12 +1,20 @@
-# ~~~
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at https://mozilla.org/MPL/2.0/.
-#
-# Copyright (c) 2022, Juergen Hock juergen.hock@jurihock.de
-#
-# See also https://github.com/jurihock/visualapplets.py
-# ~~~
+"""
+Python bindings for Basler's VisualApplets TCL script generation.
+
+Source
+------
+https://github.com/jurihock/visualapplets.py
+
+Copyright
+---------
+Copyright (c) 2022, Juergen Hock juergen.hock@jurihock.de
+
+License
+-------
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at https://mozilla.org/MPL/2.0/.
+"""
 
 
 operators = {
@@ -152,8 +160,48 @@ class Design:
 
 
 class Module:
+    """
+    An instance of the specified operator type.
+
+    Attributes
+    ----------
+    operator: str
+        Name of the operator to create an instance from.
+    parent: Design, Module, str
+        Parent object or hierarchical path to the parent object of this module.
+    name: str
+        Unique name of this module.
+    i: int, optional
+        Number of input ports.
+    o: int, optional
+        Number of output ports.
+    x: int, optional
+        X position in design window.
+    y: int, optional
+        Y position in design window.
+    """
 
     def __init__(self, operator, parent, name, i=None, o=None, x=None, y=None):
+        """
+        Creates an instance of the specified operator type.
+
+        Parameters
+        ----------
+        operator: str
+            Name of the operator to create an instance from.
+        parent: Design, Module, str
+            Parent object or hierarchical path to the parent object of this module.
+        name: str
+            Unique name of this module.
+        i: int, optional
+            Number of input ports.
+        o: int, optional
+            Number of output ports.
+        x: int, optional
+            X position in design window.
+        y: int, optional
+            Y position in design window.
+        """
 
         self.operator = operator
         self.parent = parent
@@ -166,10 +214,16 @@ class Module:
         printer.print(repr(self))
 
     def __str__(self):
+        """
+        Returns the full hierarchical path to this module.
+        """
 
         return '/'.join([str(self.parent), str(self.name)])
 
     def __repr__(self):
+        """
+        Generates the TCL code.
+        """
 
         i, o = (self.i or 0), (self.o or 0)
         x, y = grid.x(self.x or 1), grid.y(self.y or 1)
@@ -177,10 +231,28 @@ class Module:
         return f'CreateModule "{self.operator}" "{self}" "{i}" "{o}" "{x}" "{y}"'
 
     def __setitem__(self, param_name, param_value):
+        """
+        Sets the specified module parameter to a specific value.
+
+        Parameters
+        ----------
+        param_name: str
+            Name of the module parameter.
+        param_value: str, int, list, tuple
+            Parameter value to be assign.
+        """
 
         return Param(self, param_name, param_value)
 
     def __call__(self, *port_args):
+        """
+        Returns either generic or specific module port descriptor.
+
+        Parameters
+        ----------
+        port_args: str, int, optional
+            Specific port name or number.
+        """
 
         port_name = None
         port_number = None
@@ -196,6 +268,14 @@ class Module:
         return Port(self, port_name, port_number)
 
     def __sub__(self, other):
+        """
+        Connects this module with another module or a specific module port.
+
+        Parameters
+        ----------
+        other: Module, Port
+            Destination connection point.
+        """
 
         assert isinstance(other, (Module, Port))
 
