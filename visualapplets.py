@@ -36,14 +36,17 @@ operators = {
         'Condition': lambda n: f'Condition{n:03d}',
         'Else': lambda n: f'ElseI',
     },
-    'MergeKernel': {
-        'I': lambda n: f'I{n:03d}',
-    },
     'MergeComponents': {
         'R': lambda n: f'R',
         'G': lambda n: f'G',
         'B': lambda n: f'B',
         'I': lambda n: f'{["R", "G", "B"][n]}',
+    },
+    'MergeKernel': {
+        'I': lambda n: f'I{n:03d}',
+    },
+    'MergeParallel': {
+        'I': lambda n: f'I{n:03d}',
     },
     'MergePixel': {
         'I': lambda n: f'I{n:03d}',
@@ -51,14 +54,17 @@ operators = {
     'MULT': {
         'I': lambda n: f'I{(n + 1)}',
     },
-    'SplitKernel': {
-        'O': lambda n: f'O{n:03d}',
-    },
     'SplitComponents': {
         'R': lambda n: f'R',
         'G': lambda n: f'G',
         'B': lambda n: f'B',
         'O': lambda n: f'{["R", "G", "B"][n]}',
+    },
+    'SplitKernel': {
+        'O': lambda n: f'O{n:03d}',
+    },
+    'SplitParallel': {
+        'O': lambda n: f'O{n:03d}',
     },
     'SUB': {
         'I': lambda n: f'I{(n + 1)}',
