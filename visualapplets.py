@@ -24,6 +24,12 @@ operators = {
         'Condition': lambda n: f'Condition{n:03d}',
         'Else': lambda n: f'ElseI',
     },
+    'MergeKernel': {
+        'I': lambda n: f'I{n:03d}',
+    },
+    'SplitKernel': {
+        'O': lambda n: f'O{n:03d}',
+    },
 }
 
 
