@@ -99,7 +99,7 @@ Modules with unambiguous assignable output-input port combination can be directl
 
 A port descriptor has a little magic inside. Conventionally call the module instance to access either input or output port descriptor:
 
-```
+```python
 module('I') # default input port
 module('I', 0) # same
 module(0, 'I') # same
@@ -121,7 +121,7 @@ There are particular operator specific variations like in case of `DIV`, `MULT` 
 
 Creation of a link by "subtracting" modules or ports triggers the `ConnectModules` TCL command:
 
-```
+```python
 foo = Module('CONST', ...)
 bar = Module('BRANCH', ...)
 
@@ -143,7 +143,9 @@ It is not required to "park" the created link in a variable, only if a link para
 
 Depending on the context, a parameter descriptor triggers either `SetModuleParam` or `SetLinkParam` TCL command:
 
-```
+```python
+# module params
+
 foo = Module(...)
 
 foo['asdf'] = 42 # assign a int
@@ -151,9 +153,9 @@ foo['asdf'] = 'hello' # assign a string
 
 foo['asdf'] = [1, 2, 3] # assign a list of ints
 foo['asdf'] = ('a', 'b', 'c') # assign a string tuple
-```
 
-```
+# link params
+
 bar = Module(...)
 link = foo - bar
 
