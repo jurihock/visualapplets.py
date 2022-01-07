@@ -72,7 +72,7 @@ The resulting design should look similar to this one:
 
 # Basics
 
-With the help of the previous example imagine now, how custom algorithms could be implemented without a deep knowledge of the [TCL syntax](https://wiki.tcl-lang.org/page/An+Introduction+to+Tcl+Scripting), but of course not without a certain amount of Python experience.
+With the help of the previous example imagine now, how custom algorithms could be implemented without a deep [TCL](https://en.wikipedia.org/wiki/Tcl) knowledge, but of course not without a certain amount of [Python](https://www.python.org/doc/essays/comparisons) experience.
 
 There are a few basic concepts to understand how the `visualapplets.py` works.
 
