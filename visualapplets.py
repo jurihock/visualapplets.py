@@ -16,7 +16,7 @@ operators = {
     'BRANCH': {
         'O': lambda n: f'O{n:03d}',
     },
-    'CMP_Equal': {
+    'CMP_*': {
         'A': lambda n: f'A',
         'B': lambda n: f'B',
         'I': lambda n: f'{["A", "B"][n]}',
@@ -199,21 +199,33 @@ class Port:
 
     def __repr__(self):
 
+        def find1(operator):
+            import fnmatch
+            for key in operators.keys():
+                if fnmatch.fnmatchcase(operator, key):
+                    return key
+            return None
+
+        def find2(operator, port):
+            for key in operators[operator].keys():
+                if key.lower().startswith(port.lower()):
+                    return key
+            return None
+
         assert isinstance(self.name, str)
         assert isinstance(self.number, (int, type(None)))
 
-        operator = self.module.operator
+        operator = find1(self.module.operator)
 
-        if operator not in operators:
+        if operator is None:
             return f'{self.name}'
 
-        ports = operators[operator]
+        port = find2(operator, self.name)
 
-        for port in ports.keys():
-            if port.lower().startswith(self.name.lower()):
-                return ports[port](self.number or 0)
+        if port is None:
+            return f'{self.name}'
 
-        return f'{self.name}'
+        return operators[operator][port](self.number or 0)
 
     def __setitem__(self, param_name, param_value):
 
