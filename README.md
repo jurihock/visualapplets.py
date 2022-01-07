@@ -1,23 +1,16 @@
 # About visualapplets.py
 
-The [Basler AG](https://www.baslerweb.com) company provides a [TCL](https://wiki.tcl-lang.org/page/An+Introduction+to+Tcl+Scripting) scripting engine
-to automatize the creation of VisualApplets designs (a former Silicon Software GmbH technology),
-which is a nice and useful feature but not nice enough, in my opinion.
+The [Basler AG](https://www.baslerweb.com) company provides a [TCL](https://docs.baslerweb.com/visualapplets/files/documents/TCL/Content/4_VisualApplets/TCL/Intro.htm) scripting engine to automatize the creation of [VisualApplets](https://www.baslerweb.com/en/products/frame-grabber-portfolio/visualapplets) designs (a former Silicon Software GmbH technology), which is a nice and useful feature but not nice enough, in my opinion.
 
-The main idea of the `visualapplets.py` project is to introduce an additional scripting abstraction
-and to script the creation of TCL scripts via Python.
+The main idea of the `visualapplets.py` project is to introduce an additional scripting abstraction and to script the creation of TCL scripts via Python.
 
 Huh, to script a script? Too much meta? Let us study an example...
 
 ## Example
 
-In this example we will implement the [ReLU](https://en.wikipedia.org/wiki/Rectifier_(neural_networks)) operator,
-which functionally corresponds to `y(x) = max(0, x)`.
+In this example we will implement the [ReLU](https://en.wikipedia.org/wiki/Rectifier_(neural_networks)) operator, which functionally corresponds to `y(x) = max(0, x)`.
 
-Just for practical reasons, we encapsulate the operator logic in a `HierarchicalBox`.
-So it can be reused many times in a VisualApplets design.
-Consequently we also create a class in our Python script,
-for the same purpose of course.
+Just for practical reasons, we encapsulate the operator logic in a `HierarchicalBox`. So it can be reused many times in a VisualApplets design. Consequently we also create a class in our Python script, for the same purpose of course.
 
 We begin with the first part of the Python script [example.py](example.py):
 
@@ -79,9 +72,9 @@ The resulting design should look similar to this one:
 
 # Basics
 
-With the help of the previous example imagine now, how straightforward repetitive routines like vector/matrix calculus could be designed, but without the syntactical knowledge of the TCL itself (of course not without a certain amount of Python experience).
+With the help of the previous example imagine now, how custom algorithms could be implemented without a deep knowledge of the [TCL syntax](https://wiki.tcl-lang.org/page/An+Introduction+to+Tcl+Scripting), but of course not without a certain amount of Python experience.
 
-There are a few basic concepts to understand how the `visualapplets.py` works:
+There are a few basic concepts to understand how the `visualapplets.py` works.
 
 ## Module
 
