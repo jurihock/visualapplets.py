@@ -115,7 +115,7 @@ module('R') # rest of division output
 module() # either default I or O port, which is only determinable in connection context
 ```
 
-There are particular operator specific variations like in case of `DIV`, `MULT` or `SUB`, where the input index begins with `1` instead of `0` and has no specific `%03d` string format. Such delicacies are specified in the operator port dictionary `visualapplets.operators`. The port descriptor looks up for the matching dictionary entry. If there is no matching entry, it keeps the specified port name string as is.
+There are particular operator specific variations like in case of `DIV`, `MULT` or `SUB`, where the input index begins with `1` instead of `0` and has no specific `%03d` string format. Such delicacies are specified in the operator port dictionary `visualapplets.operators`. The port descriptor looks up for the matching dictionary entry. If there is no matching entry, it keeps the specified port name string as is. The dictionary lookup is case invariant and partial string matches are possible, e.g. first letter only if a distinct match is possible.
 
 ## Link
 
