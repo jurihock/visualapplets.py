@@ -70,7 +70,7 @@ The resulting design should look similar to this one:
 
 ![](example.png)
 
-Obviously there are multiple possibilities to implement the ReLU function, e.g. you can replace the fallback value by a XOR result or also only check the sign bit of the input value. But the best way is probably to utilize the built-in ClipLow module instead... ;-)
+Obviously there are multiple possibilities to implement the ReLU function, e.g. you can replace the fallback value by a XOR result or also only check the sign bit of the input value. But the best way is probably to utilize the built-in ClipLow operator instead... ;-)
 
 # Basics
 
