@@ -90,14 +90,32 @@ Only `x` and `y` arguments will be converted from the grid cell index to the abs
 
 Furthermore each module instance provides an access to
 
-* module ports via `__call__` method and
-* module parameters via `__setitem__` method.
+* module port descriptor via `__call__` method and
+* module parameter descriptor via `__setitem__` method.
 
-Modules with unambiguous assignable input and output ports can be directly connected without specifying the source and destination port, like `CONST - BRANCH`. Reciprocal connection `BRANCH - CONST` is not necessarily unambiguous, since the branch can have multiple outputs, so you have to specify which one.
+Modules with unambiguous assignable output-input port combination can be directly connected without specifying the source and destination port, like `CONST - BRANCH`. Reciprocal connection `BRANCH - CONST` is not necessarily unambiguous, since the branch can have multiple outputs, so you have to specify which one.
 
 ## Port
 
-...
+A port descriptor has a little magic inside. Conventionally call the module instance to access either input or output port descriptor:
+
+```
+module('I') # default input port
+module('I', 0) # same
+module(0, 'I') # same
+
+module('O') # default output port
+module('o', 0) # same (since case invariant)
+module(0, 'o') # same
+
+module('O', 1) # second output port of branch
+module('A') # first input of comparator
+module('R') # rest of division output
+
+module() # either default I or O port, which is only detectable in connection context
+```
+
+There are particular operator specific variations like in case of `DIV`, `MULT` or `SUB`, where the input index begins with `1` instead of `0` and has no specific `%03d` string format. Such delicacies are specified in the operator port dictionary `visualapplets.operators`. The port descriptor looks up for the matching dictionary entry. If there is no matching entry, it keeps the specified port name string as is.
 
 ## Link
 
