@@ -10,8 +10,15 @@
 
 
 operators = {
+    'ADD': {
+        'I': lambda n: f'I{n:03d}',
+    },
     'BRANCH': {
         'O': lambda n: f'O{n:03d}',
+    },
+    'DIV': {
+        'I': lambda n: f'I{(n + 1)}',
+        'R': lambda n: f'R',
     },
     'HierarchicalBox': {
         'I': lambda n: f'I{n:03d}',
@@ -27,8 +34,14 @@ operators = {
     'MergeKernel': {
         'I': lambda n: f'I{n:03d}',
     },
+    'MULT': {
+        'I': lambda n: f'I{(n + 1)}',
+    },
     'SplitKernel': {
         'O': lambda n: f'O{n:03d}',
+    },
+    'SUB': {
+        'I': lambda n: f'I{(n + 1)}',
     },
 }
 
