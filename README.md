@@ -2,7 +2,7 @@
 
 The [Basler AG](https://www.baslerweb.com) company provides a [TCL](https://docs.baslerweb.com/visualapplets/files/documents/TCL/Content/4_VisualApplets/TCL/Intro.htm) scripting engine to automatize the creation of [VisualApplets](https://www.baslerweb.com/en/products/frame-grabber-portfolio/visualapplets) designs (a former Silicon Software GmbH technology), which is a nice and useful feature but not nice enough, in my opinion.
 
-The main idea of the **[visualapplets.py](visualapplets.py)** project is to introduce an additional scripting abstraction and to script the creation of TCL scripts via Python.
+The main idea of the **[visualapplets.py](https://github.com/jurihock/visualapplets.py/blob/main/visualapplets.py)** project is to introduce an additional scripting abstraction and to script the creation of TCL scripts via Python.
 
 Huh, to script a script? Too much meta? Let's study an example...
 
@@ -12,7 +12,7 @@ In this example we will implement the [ReLU](https://en.wikipedia.org/wiki/Recti
 
 Just for practical reasons, we encapsulate the operator logic in a `HierarchicalBox`. So it can be reused many times in a VisualApplets design. Consequently we also create a class in our Python script, for the same purpose of course.
 
-We begin with the first part of the Python script [example.py](example.py):
+We begin with the first part of the Python script [example.py](https://github.com/jurihock/visualapplets.py/blob/main/example.py):
 
 ```python
 import visualapplets as VA
@@ -59,7 +59,7 @@ design = VA.Design('mE5-MA-VCLx', 'Example')
 example = Example(design, 'Example', x=1, y=2)
 ```
 
-Finally import the generated [example.tcl](example.tcl) file in the VisualApplets IDE or execute something like this in the TCL console:
+Finally import the generated [example.tcl](https://github.com/jurihock/visualapplets.py/raw/main/example.tcl) file in the VisualApplets IDE or execute something like this in the TCL console:
 
 ```
 CloseDesign Discard
@@ -68,7 +68,7 @@ source "C:/foo/bar/example.tcl"
 
 The resulting design should look similar to this one:
 
-![](example.png)
+![](https://github.com/jurihock/visualapplets.py/raw/main/example.png)
 
 Obviously there are more possibilities to implement the ReLU function. You can replace the fallback value by the `XOR` result or also only check the sign bit of the input value. But the preferred way is probably to utilize the built-in `ClipLow` operator instead... ;-)
 
@@ -93,7 +93,7 @@ Furthermore each module instance provides an access to
 * module port descriptor via `()` accessor and
 * module parameter descriptor via `[]` accessor.
 
-Modules with unambiguous assignable output-input port combination can be directly connected without specifying the source and destination port, like `CONST - BRANCH`. Reciprocal connection `BRANCH - CONST` is not necessarily unambiguous, since the branch can have multiple outputs, so you have to specify which one.
+Modules with unambiguous assignable output-input port combination can be directly connected without specifying the source and destination port, like `CONST - BRANCH`. Reciprocal connection `BRANCH - CONST` is not necessarily unambiguous, since the branch may have multiple outputs, so you have to specify which one.
 
 ## Port
 

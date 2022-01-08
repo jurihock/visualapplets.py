@@ -17,6 +17,9 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 """
 
 
+__version__ = '1.0'
+
+
 operators = {
     'ADD': {
         'I': lambda n: f'I{n:03d}',
@@ -117,9 +120,6 @@ class FilePrinter:
             self.file.write('\n')
 
 
-printer = StdoutPrinter()
-
-
 class Grid:
 
     def x(self, index):
@@ -129,9 +129,6 @@ class Grid:
     def y(self, index):
 
         return ((index or 0) * 40 + 3) * 2 - (1 * 40 + 3)
-
-
-grid = Grid()
 
 
 class Design:
@@ -426,6 +423,5 @@ class Param:
         assert False
 
 
-if __name__ == '__main__':
-
-    pass
+grid = Grid()
+printer = StdoutPrinter()

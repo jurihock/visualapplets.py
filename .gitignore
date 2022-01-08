@@ -1,5 +1,10 @@
 .*/
+
 *.py[cod]
+__pycache__/
+
+*.egg-info/
+dist/
 
 .DS_Store
 Thumbs.db
