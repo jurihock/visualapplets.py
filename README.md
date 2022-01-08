@@ -76,7 +76,7 @@ Obviously there are more possibilities to implement the ReLU function. You can r
 
 With the help of the previous example imagine now, how custom algorithms could be implemented without a deep [TCL](https://en.wikipedia.org/wiki/Tcl) knowledge, but of course not without a certain amount of [Python](https://www.python.org/doc/essays/comparisons) experience.
 
-There are a few basic concepts to understand how the `visualapplets.py` works.
+There are a few basic concepts to understand how the [visualapplets.py](https://github.com/jurihock/visualapplets.py/blob/main/visualapplets.py) works.
 
 ## Module
 
