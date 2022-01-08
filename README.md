@@ -93,7 +93,7 @@ Furthermore each module instance provides an access to
 * module port descriptor via `()` accessor and
 * module parameter descriptor via `[]` accessor.
 
-Modules with unambiguous assignable output-input port combination can be directly connected without specifying the source and destination port, like `CONST - BRANCH`. Reciprocal connection `BRANCH - CONST` is not necessarily unambiguous, since the branch may have multiple outputs, so you have to specify which one.
+Modules with unambiguous assignable output-input port combination can be directly connected without specifying the source and destination port, like `CONST - BRANCH`. Reciprocal connection `BRANCH - CONST` is not necessarily unambiguous, since the branch has multiple outputs, so you have to specify which one.
 
 ## Port
 
